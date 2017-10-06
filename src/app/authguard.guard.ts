@@ -1,0 +1,27 @@
+import { Injectable } from "@angular/core";
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot
+} from "@angular/router";
+import { Observable } from "rxjs/Observable";
+import { UserService } from "./user.service";
+import { Router } from "@angular/router";
+
+@Injectable()
+export class AuthguardGuard implements CanActivate {
+  constructor(private user: UserService, private router: Router) {}
+
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+    // this.router.navigate(['/loginform']);
+    // console.log('You are not authenticated');
+    this.user.getUserLoggedIn() == false
+      ? this.router.navigate(["/notfound"])
+      : this.user.getUserLoggedIn();
+    console.log("AuthguardGuard.", this.user.getUserLoggedIn());
+    return this.user.getUserLoggedIn();
+  }
+}

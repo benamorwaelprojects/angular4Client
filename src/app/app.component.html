@@ -1,0 +1,110 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align: center">
+    <h1 blueClored>Welcome to {{name}} and {{lastName}}!</h1>
+    <img width="100" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAg
+		MjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcg
+		MTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEy
+		My4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJo
+		NDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+
+    <br>
+
+    <!-- calculer le nbr de touche -->
+    1+1 = <input type="text" value="{{result}}" (keydown)="myFunction()"><br>
+
+    <!-- detécter le caractére dans le console  -->
+    1+1 = <input type="text" value="{{result}}" (keydown)="myFunction1($event)"><br>
+
+    <!-- modification en temps réel -->
+    {{myCostomString}} 1+1 = <input type="text" value="{{result1}}" (keydown)="myFunction2($event)">
+    <!-- c'est la mémechose -->
+    <!-- 1+1 = <input type="text" bind-value ="result" 
+	on-keydown="myFunction()"> -->
+    <!-- OU -->
+    <!-- 1+1 = <input type="text" [value] ="result" 
+	on-keydown="myFunction()"> -->
+</div>
+<div style="text-align: center">
+    <h1>-----------------------------------------------------------</h1>
+</div>
+<div *ngIf="visible;then evenClicked else oddClicked">This works !</div>
+<br><br>
+<div *ngIf="visible; else oddClicked">this works !</div>
+<br><br>
+<div *ngIf="counter % 2 ==0; let randomVariable">Yep! {{randomVariable}}</div>
+<br><br>
+<button (click)="onClick()">Toggle</button><br><br>
+<div *ngIf="myFavLang.frontent; let frontEndLanguages">Yep! {{frontEndLanguages.join(', ')}}
+</div>
+<ng-template #oddClicked>Odd Clicked</ng-template>
+<ng-template #evenClicked>Even Clicked</ng-template>
+<ul *ngFor="let language of languages; let i=index ;">
+    <li>{{i+1}}. {{language.name}} - {{language.type}}</li>
+</ul>
+<div style="text-align: center">
+    <h1>-----------------------------------------------------------</h1>
+</div>
+<h1>hello: {{username}}</h1><br>
+<input type="text" [value]="username" (input)="changeUserName($event)">
+<br><br>
+<h1>hello: {{userLastname}}</h1><br>
+<input type="text" [(ngModel)]="userLastname">
+
+<div style="text-align: center">
+    <h1>--------------------------LOGIN FORM----------------------</h1>
+</div>
+
+<div id="fullPage" style="text-align: center">
+    <app-header></app-header>
+    <h2>Router Views:</h2>
+    <br>
+    <br>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">home</a>---
+    <a routerLink="/child" routerLinkActive="active">Child</a>---
+    <a routerLink="/loginform" routerLinkActive="active">login form</a>---
+    <a routerLink="/header" routerLinkActive="active">header</a>---
+    <a routerLink="/dashboard" routerLinkActive="active">dashboard</a>
+    <router-outlet></router-outlet>
+    <br><br><br><br>
+</div>
+
+
+<app-footer></app-footer>
+
+
+<div style="text-align: center">
+    <h1>----------------------@ViewChild--------------------------</h1>
+
+</div>
+<div style="text-align: center">
+    <h2>View Child</h2> <input type="text" #MyInputText>
+</div>
+
+
+<div style="text-align: center">
+    <h1>---------------------@Input-Child--------------------------</h1>
+</div>
+
+<app-child [myAwesomeValue]="3+5+7">
+
+</app-child>
+
+<div style="text-align: center">
+    <h1>-----------------------------------------------------------</h1>
+</div>
+
+<h2>Here are some links to help you start:</h2>
+<ul>
+    <li>
+        <h2>
+            <a target="_blank" href="https://www.facebook.com">facebook</a>
+        </h2>
+    </li>
+    <li>
+        <h2>
+            <a target="_blank" href="https://angular.io/tutorial">Tour of
+				Heroes</a>
+        </h2>
+    </li>
+</ul>
